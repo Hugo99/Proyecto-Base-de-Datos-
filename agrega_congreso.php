@@ -90,32 +90,32 @@
       </svg>
     
       <div class="d-flex flex-column p-3 text-white bg-dark" style="width: 280px;">
-        <a href="../Proyecto-Base-de-Datos-/vista_tablas.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <a href="../Proyecto-Base-de-Datos-/vista_tablas.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
           <span class="fs-4">Base de Datos</span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="../Proyecto-Base-de-Datos-/vista_tablas.html" class="nav-link text-white">
+            <a href="../Proyecto-Base-de-Datos-/vista_tablas.php" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
               Datos
             </a>
           </li>
           <li>
-            <a href="../Proyecto-Base-de-Datos-/agrega_congreso.html" class="nav-link text-white">
+            <a href="../Proyecto-Base-de-Datos-/agrega_congreso.php" class="nav-link active">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
               Agregar Congreso 
             </a>
           </li>
           <li>
-            <a href="../Proyecto-Base-de-Datos-/agregar_articulo.html" class="nav-link active">
+            <a href="../Proyecto-Base-de-Datos-/agregar_articulo.php" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
               Agregar Articulo
             </a>
           </li>
           <li>
-            <a href="../Proyecto-Base-de-Datos-/agrega_investigador.html" class="nav-link text-white">
+            <a href="../Proyecto-Base-de-Datos-/agrega_investigador.php" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
               Agregar Investigador
             </a>
@@ -128,5 +128,6 @@
           </li>
         </ul>
       </div>
+      
 </body>
 </html>

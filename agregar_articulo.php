@@ -90,32 +90,32 @@
       </svg>
     
       <div class="d-flex flex-column p-3 text-white bg-dark" style="width: 280px;">
-        <a href="../Proyecto-Base-de-Datos-/vista_tablas.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <a href="../Proyecto-Base-de-Datos-/vista_tablas.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
           <span class="fs-4">Base de Datos</span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="../Proyecto-Base-de-Datos-/vista_tablas.html" class="nav-link active">
+            <a href="../Proyecto-Base-de-Datos-/vista_tablas.php" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
               Datos
             </a>
           </li>
           <li>
-            <a href="../Proyecto-Base-de-Datos-/agrega_congreso.html" class="nav-link text-white">
+            <a href="../Proyecto-Base-de-Datos-/agrega_congreso.php" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
               Agregar Congreso 
             </a>
           </li>
           <li>
-            <a href="../Proyecto-Base-de-Datos-/agregar_articulo.html" class="nav-link text-white">
+            <a href="../Proyecto-Base-de-Datos-/agregar_articulo.php" class="nav-link text-white active">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
               Agregar Articulo
             </a>
           </li>
           <li>
-            <a href="../Proyecto-Base-de-Datos-/agrega_investigador.html" class="nav-link text-white">
+            <a href="../Proyecto-Base-de-Datos-/agrega_investigador.php" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
               Agregar Investigador
             </a>
@@ -128,5 +128,85 @@
           </li>
         </ul>
       </div>
+
+        <form class="center">
+          <h1 class="h3 mb-3 fw-normal">Agregar articulo</h1>
+      
+          <div class="form-floating">
+            <input type="" class="form-control" id="floatingInput" >
+            <label for="floatingInput">Titulo</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="" class="form-control" id="floatingPassword" >
+            <label for="floatingPassword">Palabra Clave</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="" class="form-control" id="floatingInput" >
+            <label for="floatingInput">Email</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="" class="form-control" id="floatingPassword" >
+            <label type=""for="floatingPassword">Copia</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="" class="form-control" id="floatingInput" >
+            <label for="floatingInput">Ubicación copia</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="" class="form-control" id="floatingPassword" >
+            <label for="floatingPassword">Tipo publicación</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="" class="form-control" id="floatingInput" >
+            <label for="floatingInput">Investigador</label>
+          </div>
+
+          <div>
+            Año publicación:
+            <select  class="form-control" name="year" id="year"></select>
+            <script type="text/javascript"
+                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
+            </script>
+            <script type="text/javascript">
+            let startYear = 1800;
+            let endYear = new Date().getFullYear();
+            for (i = endYear; i > startYear; i--)
+            {
+              $('#yearpicker').append($('<option />').val(i).html(i));
+            }
+            </script>
+          </div>
+
+          <div class="form-floating">
+            <input type="" class="form-control" id="floatingPassword" >
+            <label for="floatingPassword">Pagina de inicio</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="" class="form-control" id="floatingInput" >
+            <label for="floatingInput">Pagina final</label>
+          </div>
+
+          <div class="form-floating">
+            tipo de publicación:
+            <select class="form-floating" name="tipoPublicacion" id="tipoPub">
+              <option value="infTecnico">Informe tecnico</option>
+              <option value="Revista">Revista cientifica</option>
+              <option value="congrdo">Actas de congreso</option>
+            </select>
+          </div>
+          
+
+        
+    
+        <button class="w-100 btn btn-lg btn-primary" type="submit" href="#">
+          <a style="text-decoration:none; color:white">Agregar</a></button>
+      </form>
 </body>
 </html>

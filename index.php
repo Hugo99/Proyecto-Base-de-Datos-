@@ -28,11 +28,11 @@
       <label for="floatingInput">Usuario</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="floatingPassword" >
       <label for="floatingPassword">Contraseña</label>
     </div>
 
-    <button class="w-100 btn btn-lg btn-primary" type="submit" href="vista_tablas.html"><a href="vista_tablas.html" style="text-decoration:none">Inicia sesión</a></button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" href="../vista_tablas.php"><a href="vista_tablas.php" style="text-decoration:none color: white" >Inicia sesión</a></button>
   </form>
 </main>
 
