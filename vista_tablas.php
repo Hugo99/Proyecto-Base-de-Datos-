@@ -109,6 +109,18 @@
             </a>
           </li>
           <li>
+            <a href="../Proyecto-Base-de-Datos-/agrega_congreso.php" class="nav-link text-white">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+              Agregar Informe Tecnico 
+            </a>
+          </li>
+          <li>
+            <a href="../Proyecto-Base-de-Datos-/agrega_congreso.php" class="nav-link text-white">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+              Agregar Revista Cientifica
+            </a>
+          </li>
+          <li>
             <a href="../Proyecto-Base-de-Datos-/agregar_articulo.php" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
               Agregar Articulo

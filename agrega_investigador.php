@@ -1,3 +1,4 @@
+<?php include("db.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,6 +110,18 @@
             </a>
           </li>
           <li>
+            <a href="../Proyecto-Base-de-Datos-/agrega_InfTec.php" class="nav-link text-white ">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+              Agregar Informe Tecnico 
+            </a>
+          </li>
+          <li>
+            <a href="../Proyecto-Base-de-Datos-/agrega_RevistaCient.php" class="nav-link text-white">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+              Agregar Revista Cientifica
+            </a>
+          </li>
+          <li>
             <a href="../Proyecto-Base-de-Datos-/agregar_articulo.php" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
               Agregar Articulo
@@ -129,26 +142,23 @@
         </ul>
       </div>
 
-      <form class="center">
+      <form action="crea_investigador.php" method="post">
         <h1 class="h3 mb-3 fw-normal">Agregar invetigador</h1>
     
-        <div class="form-floating">
-          <input type="" class="form-control" id="floatingInput" >
-          <label for="floatingInput">Nombre</label>
+        <div class="mb-2 form-floating">
+          <input type="text" name="nombre" class="form-control" id="floatingInput" >
+          <label for="floatingInput" name="nombre">Nombre</label>
         </div>
 
-        <div class="form-floating">
-          <input type="" class="form-control" id="floatingPassword" >
-          <label for="floatingPassword">Correo </label>
+        <div class="mb-2 form-floating">
+          <input type="email" name="correo" class="form-control" id="floatingPassword" >
+          <label for="floatingPassword" name="correo">Correo </label>
         </div>
 
-        <div class="form-floating">
-          <input type="" class="form-control" id="floatingInput" >
-          <label for="floatingInput">Area</label>
-        </div>        
-    
-        <button class="w-100 btn btn-lg btn-primary" type="submit" href="#">
+        <div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit" name="crea_investigador">
           <a style="text-decoration:none; color:white">Agregar</a></button>
+        </div>
       </form>
 
 </body>

@@ -1,3 +1,5 @@
+<?php include("db.php") ;?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,6 +111,18 @@
             </a>
           </li>
           <li>
+            <a href="../Proyecto-Base-de-Datos-/agrega_InfTec.php" class="nav-link text-white ">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+              Agregar Informe Tecnico 
+            </a>
+          </li>
+          <li>
+            <a href="../Proyecto-Base-de-Datos-/agrega_RevistaCient.php" class="nav-link text-white">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+              Agregar Revista Cientifica
+            </a>
+          </li>
+          <li>
             <a href="../Proyecto-Base-de-Datos-/agregar_articulo.php" class="nav-link text-white active">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
               Agregar Articulo
@@ -129,84 +143,99 @@
         </ul>
       </div>
 
-        <form class="center">
+      <form action="crea_articulo.php" method="POST">
           <h1 class="h3 mb-3 fw-normal">Agregar articulo</h1>
       
-          <div class="form-floating">
-            <input type="" class="form-control" id="floatingInput" >
-            <label for="floatingInput">Titulo</label>
+          <div class="mb-2 form-floating">
+            <input type="text" class="form-control" id="floatingInput" name="titulo">
+            <label for="floatingInput" >Titulo</label>
           </div>
 
-          <div class="form-floating">
-            <input type="" class="form-control" id="floatingPassword" >
+          <div class="mb-2 form-floating">
+            <input type="text" class="form-control" id="floatingPassword" name="palabraClave" >
             <label for="floatingPassword">Palabra Clave</label>
           </div>
 
-          <div class="form-floating">
-            <input type="" class="form-control" id="floatingInput" >
+          <div class="mb-2 form-floating">
+            <input type="email" class="form-control" id="floatingInput" name="email">
             <label for="floatingInput">Email</label>
           </div>
 
-          <div class="form-floating">
-            <input type="" class="form-control" id="floatingPassword" >
-            <label type=""for="floatingPassword">Copia</label>
-          </div>
-
-          <div class="form-floating">
-            <input type="" class="form-control" id="floatingInput" >
+          <div class="mb-2 form-floating">
+            <input type="text" class="form-control" id="floatingInput" name="ubicacionCopia">
             <label for="floatingInput">Ubicación copia</label>
           </div>
 
-          <div class="form-floating">
-            <input type="" class="form-control" id="floatingPassword" >
-            <label for="floatingPassword">Tipo publicación</label>
-          </div>
-
-          <div class="form-floating">
-            <input type="" class="form-control" id="floatingInput" >
+          <div class="mb-2 form-floating">
+            <input type="" class="form-control" id="floatingInput" name="investigador">
             <label for="floatingInput">Investigador</label>
           </div>
 
-          <div>
-            Año publicación:
-            <select  class="form-control" name="year" id="year"></select>
-            <script type="text/javascript"
-                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
-            </script>
-            <script type="text/javascript">
-            let startYear = 1800;
-            let endYear = new Date().getFullYear();
-            for (i = endYear; i > startYear; i--)
-            {
-              $('#yearpicker').append($('<option />').val(i).html(i));
-            }
-            </script>
+          <div class="mb-2 form-floating">
+            <input type="date" class="form-control" id="" name="fechaPub">
+            <label for="floatingPassword">Año de publicación</label>
           </div>
 
-          <div class="form-floating">
-            <input type="" class="form-control" id="floatingPassword" >
+          <div class="mb-2 form-floating">
+            <input type="number" class="form-control" id="" name="pagIn">
             <label for="floatingPassword">Pagina de inicio</label>
           </div>
 
-          <div class="form-floating">
-            <input type="" class="form-control" id="floatingInput" >
+          <div class="mb-2 form-floating">
+            <input type="number" class="form-control" id="floatingInput" name="pagFin">
             <label for="floatingInput">Pagina final</label>
           </div>
 
-          <div class="form-floating">
-            tipo de publicación:
-            <select class="form-floating" name="tipoPublicacion" id="tipoPub">
-              <option value="infTecnico">Informe tecnico</option>
-              <option value="Revista">Revista cientifica</option>
-              <option value="congrdo">Actas de congreso</option>
+          <div class="mb-2 form-floating">
+            tipo de publicación: 
+            <select class="form-floating" name="tipoPublicacion" id="tipoPub" >
+              <optgroup label="Congreso">
+                <?php  
+                  $query = "SELECT * FROM `ACTAS_DE_CONGRESOS`";
+                  $result_tasks = mysqli_query($conn, $query);
+                  $tipP=0
+                ?>
+                <?php while ($row = mysqli_fetch_array($result_tasks)):; ?>
+
+                  <option value="<?php echo $row[0]?>">  <?php echo $row[2] ?> </option>
+
+                <?php endwhile ?>
+              </optgroup>
+
+              <optgroup label="Revista Cientifica">
+              <?php  
+                  $query = "SELECT * FROM `REVISTA_CIENTIFICA`";
+                  $result_tasks = mysqli_query($conn, $query);
+                  $tipP=1
+                ?>
+                <?php while ($row = mysqli_fetch_array($result_tasks)):; ?>
+
+                  <option value="<?php echo $row[0]?>">  <?php echo $row[2] ?> </option>
+
+                <?php endwhile ?>
+              </optgroup>
+
+              <optgroup label="Informe tecnico">
+                <?php  
+                  $query = "SELECT * FROM `INFORME_TECNICO`";
+                  $result_tasks = mysqli_query($conn, $query);
+                  $tipP=2
+                ?>
+                <?php while ($row = mysqli_fetch_array($result_tasks)):; ?>
+
+                  <option value="<?php echo $row[0]?>">  <?php echo $row[1] ?> </option>
+
+                <?php endwhile ?>
+              </optgroup>
+
             </select>
           </div>
           
+          <div class="mb-2 form-floating">
+            <button class="w-100 btn btn-lg btn-primary" type="submit" name="crea_articulo">
+            <a style="text-decoration:none; color:white">Agregar</a></button>
+          </div>
 
-        
-    
-        <button class="w-100 btn btn-lg btn-primary" type="submit" href="#">
-          <a style="text-decoration:none; color:white">Agregar</a></button>
       </form>
 </body>
 </html>

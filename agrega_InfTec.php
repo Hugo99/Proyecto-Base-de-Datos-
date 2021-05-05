@@ -103,13 +103,13 @@
             </a>
           </li>
           <li>
-            <a href="../Proyecto-Base-de-Datos-/agrega_congreso.php" class="nav-link text-white active">
+            <a href="../Proyecto-Base-de-Datos-/agrega_congreso.php" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
               Agregar Congreso 
             </a>
           </li>
           <li>
-            <a href="../Proyecto-Base-de-Datos-/agrega_InfTec.php" class="nav-link text-white ">
+            <a href="../Proyecto-Base-de-Datos-/agrega_InfTec.php" class="nav-link text-white active">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
               Agregar Informe Tecnico 
             </a>
@@ -141,51 +141,26 @@
         </ul>
       </div>
 
-      <form action="crea_congreso.php" method="POST">
-        <h1 class="h3 mb-3 fw-normal">Agregar congreso</h1>  
+      <form action="crea_infTec.php" method="POST">
+        <h1 class="h3 mb-3 fw-normal">Agregar Informe Tecnico</h1>  
 
         <div class="mb-2 form-floating">
-          <input type="text" name="nombreCongreso" class="form-control" >
-          <label class="form-label" for="floatingInput">Nombre del Congreso</label>
+          <input type="text" name="numero" class="form-control" >
+          <label class="form-label" for="floatingInput">numero</label>
         </div>
         
         <div class="mb-2 form-floating">
-          <input type="text" name="edicionCongreso" class="form-control">
-          <label class="form-label">Edicion del Congreso</label>
+          <input type="text" name="ubicacion" class="form-control">
+          <label class="form-label">Ubicación</label>
+        </div>
+
+        <div class="mb-2 form-floating">
+          <input type="date" name="fecha" class="form-control">
+          <label class="form-label">Fecha</label>
         </div>
       
-        <div class="mb-2 form-floating">
-          <input type="text" name="pais" class="form-control">
-          <label class="form-label">País</label>
-        </div>
-      
-        <div class="mb-2 form-floating">
-          <input type="text" name="ciudad" class="form-control">
-          <label class="form-label">Ciudad</label>
-        </div>
 
-        </div>
-        <div class="mb-2 form-floating">
-          <input type="text" name="frecuencia" class="form-control">
-          <label class="form-label">Frecuencia</label>
-        </div>
-
-        <div class="mb-2 form-floating">
-          <input type="text" name="primerAnoCongreso" class="form-control">
-          <label class="form-label">Primer Año del Congreso</label>
-        </div>
-
-        <div class="mb-2 form-floating">
-          <input type="date" name="fechaInicio" class="form-control">
-          <label class="form-label">Fecha de Inicio</label>
-        </div>
-
-        <div class="mb-2 form-floating">
-          <input type="date" name="fechaFinal" class="form-control">
-          <label class="form-label">Fecha de Término</label>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block" name="crea_congreso">Guardar</button>
+        <button type="submit" class="btn btn-primary btn-block" name="crea_infTec">Guardar</button>
       </form>
 
           </tbody>
