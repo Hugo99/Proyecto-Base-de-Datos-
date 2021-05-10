@@ -1,9 +1,12 @@
+<?php include("db.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <link href="sidebars.css" rel="stylesheet">
 
@@ -20,6 +23,22 @@
           .bd-placeholder-img-lg {
             font-size: 3.5rem;
           }
+        }
+        
+        div.ex1 {
+          overflow: scroll;
+        }
+
+        div.ex2 {
+          overflow: hidden;
+        }
+
+        div.ex3 {
+          overflow: auto;
+        }
+
+        div.ex4 {
+          overflow: visible;
         }
       </style>
   
@@ -133,13 +152,197 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link" style="color: red;">
+            <a href="logout.php" class="nav-link" style="color: red;">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
               Cerrar sesión
             </a>
           </li>
         </ul>
+      </div>      
+
+    <div class="ex1">
+      <div class="d-flex flex-column p-3 ">
+        <h2>Articulos</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Titulo</th>
+              <th>Correo</th>
+              <th>Ubicacion Copia</th>
+              <th>Tipo de publicacion</th>
+              <th>Año de publicacion</th>
+              <th>Información de la publicación</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php 
+            $query = "SELECT `titulo`, `email`, `ubicacionCopia`, `tipoPublicacion`, `anio`, `IdRevista`, `idINFORME_TECNICO`, `IdCongreso` FROM `ARTICULO` ";
+            $result = mysqli_query($conn,$query);
+            while ($row = mysqli_fetch_array($result)) { 
+          ?>
+            <tr>
+              <td><?php echo $row['titulo'] ?></td>
+              <td><?php echo $row['email'] ?></td>
+              <td><?php echo $row['ubicacionCopia'] ?></td>
+              <td><?php echo $row['tipoPublicacion'] ?></td>
+              <td><?php echo $row['anio'] ?></td>
+              <?php if($row['IdRevista'] != ''){ ?>
+                <td><?php 
+                  $id = $row['IdRevista'];
+                  $query2 = "SELECT * FROM `REVISTA_CIENTIFICA` WHERE `idREVISTA_CIENTIFICA` = '$id' ";
+                  $result2 = mysqli_query($conn,$query2);
+                  $row2 = mysqli_fetch_array($result2);
+                  echo $row2[1]
+                  ?>
+                </td>
+              <?php }elseif($row['idINFORME_TECNICO'] != ''){ ?>
+                <td><?php
+                      $id = $row['idINFORME_TECNICO'];
+                      $query2 = "SELECT * FROM `INFORME_TECNICO` WHERE `idINFORME_TECNICO` = '$id' ";
+                      $result2 = mysqli_query($conn,$query2);
+                      $row2 = mysqli_fetch_array($result2);
+                      echo $row2[1]   
+                    ?> 
+                </td>
+              <?php }else{ ?>
+                <td><?php 
+                    $id = $row['IdCongreso'];
+                    $query2 = "SELECT * FROM `ACTAS_DE_CONGRESOS` WHERE `idACTAS_DE_CONGRESOS` = '$id' ";
+                    $result2 = mysqli_query($conn,$query2);
+                    $row2 = mysqli_fetch_array($result2);
+                    echo $row2[2]  
+                    ?>
+                </td>
+              <?php } ?>
+            </tr>
+          <?php } ?>
+          </tbody>
+        </table>
+      </div>      
+
+      <div class="d-flex flex-column p-3 ">
+        <h2>Investigadores</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php 
+            $query = "SELECT `idAUTOR`, `nombre`, `correo` FROM `AUTOR`  ";
+            $result = mysqli_query($conn,$query);
+            while ($row = mysqli_fetch_array($result)) { 
+          ?>
+            <tr>
+              <td><?php echo $row['idAUTOR'] ?></td>
+              <td><?php echo $row['nombre'] ?></td>
+              <td><?php echo $row['correo'] ?></td>         
+            </tr>
+          <?php } ?>
+          </tbody>
+        </table>
       </div>
+
+      <div class="d-flex flex-column p-3 ">
+        <h2>Congresos</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Ciudad</th>
+              <th>Pais</th>
+              <th>Edición</th>
+              <th>Frecuencia</th>
+              <th>Año de fundacion</th>
+              <th>Fecha de inicio</th>
+              <th>Fecha de finalización</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php 
+            $query = "SELECT `idACTAS_DE_CONGRESOS`, `edicionCongreso`, `nombreCongreso`, `ciudad`, `fechaInicio`, `fechaFinal`, `frecuencia`, `primerAnoCongreso`, `pais` FROM `ACTAS_DE_CONGRESOS` ";
+            $result = mysqli_query($conn,$query);
+            while ($row = mysqli_fetch_array($result)) { 
+          ?>
+            <tr>
+              <td><?php echo $row['idACTAS_DE_CONGRESOS'] ?></td>
+              <td><?php echo $row['nombreCongreso'] ?></td>
+              <td><?php echo $row['ciudad'] ?></td>   
+              <td><?php echo $row['pais'] ?></td>
+              <td><?php echo $row['edicionCongreso'] ?></td>
+              <td><?php echo $row['frecuencia'] ?></td>   
+              <td><?php echo $row['primerAnoCongreso'] ?></td>
+              <td><?php echo $row['fechaInicio'] ?></td>
+              <td><?php echo $row['fechaFinal'] ?></td>         
+            </tr>
+          <?php } ?>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="d-flex flex-column p-3 ">
+        <h2>Revista Cientifica</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Nombre del editor</th>
+              <th>Frecuencia de publicación</th>
+              <th>Edición</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php 
+            $query = "SELECT `idREVISTA_CIENTIFICA`, `nombreRevista`, `nombreEditor`, `frecuencia`, `temas` FROM `REVISTA_CIENTIFICA` ";
+            $result = mysqli_query($conn,$query);
+            while ($row = mysqli_fetch_array($result)) { 
+          ?>
+            <tr>
+              <td><?php echo $row['idREVISTA_CIENTIFICA'] ?></td>
+              <td><?php echo $row['nombreRevista'] ?></td>
+              <td><?php echo $row['nombreEditor'] ?></td>   
+              <td><?php echo $row['frecuencia'] ?></td>
+              <td><?php echo $row['temas'] ?></td>
+            </tr>
+          <?php } ?>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="d-flex flex-column p-3 ">
+        <h2>Informe tecnico</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Numero</th>
+              <th>Ubicación</th>
+              <th>Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php 
+            $query = "SELECT `idINFORME_TECNICO`, `numero`, `ubicacion`, `fecha` FROM `INFORME_TECNICO`";
+            $result = mysqli_query($conn,$query);
+            while ($row = mysqli_fetch_array($result)) { 
+          ?>
+            <tr>
+              <td><?php echo $row['idINFORME_TECNICO'] ?></td>
+              <td><?php echo $row['numero'] ?></td>
+              <td><?php echo $row['ubicacion'] ?></td>   
+              <td><?php echo $row['fecha'] ?></td>
+            </tr>
+          <?php } ?>
+          </tbody>
+        </table>
+      </div>
+    </div>      
 
 </body>
 </html>

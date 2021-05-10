@@ -135,7 +135,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link" style="color: red;">
+            <a href="logout.php" class="nav-link" style="color: red;">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
               Cerrar sesión
             </a>
@@ -158,7 +158,7 @@
 
           <div class="mb-2 form-floating">
             <input type="email" class="form-control" id="floatingInput" name="email">
-            <label for="floatingInput">Email</label>
+            <label type="email" for="floatingInput">Email</label>
           </div>
 
           <div class="mb-2 form-floating">
@@ -191,43 +191,43 @@
             <select class="form-floating" name="tipoPublicacion" id="tipoPub" >
               <optgroup label="Congreso">
                 <?php  
-                  $query = "SELECT * FROM `ACTAS_DE_CONGRESOS`";
-                  $result_tasks = mysqli_query($conn, $query);
+                  $query1 = "SELECT * FROM `ACTAS_DE_CONGRESOS`";
+                  $result_tasks1 = mysqli_query($conn, $query1);
                   $tipP=0
                 ?>
-                <?php while ($row = mysqli_fetch_array($result_tasks)):; ?>
+                <?php while ($row1 = mysqli_fetch_array($result_tasks1)):; ?>
 
-                  <option value="<?php echo $row[0]?>">  <?php echo $row[2] ?> </option>
+                  <option value="<?php echo $row1[0]?>">  <?php echo $row1[2] ?> </option>
 
                 <?php endwhile ?>
               </optgroup>
 
               <optgroup label="Revista Cientifica">
               <?php  
-                  $query = "SELECT * FROM `REVISTA_CIENTIFICA`";
-                  $result_tasks = mysqli_query($conn, $query);
+                  $query2 = "SELECT * FROM `REVISTA_CIENTIFICA`";
+                  $result_tasks2 = mysqli_query($conn, $query2);
                   $tipP=1
                 ?>
-                <?php while ($row = mysqli_fetch_array($result_tasks)):; ?>
+                <?php while ($row2 = mysqli_fetch_array($result_tasks2)):; ?>
 
-                  <option value="<?php echo $row[0]?>">  <?php echo $row[2] ?> </option>
+                  <option value="<?php echo $row2[0]?>">  <?php echo $row2[1] ?> </option>
 
                 <?php endwhile ?>
               </optgroup>
 
               <optgroup label="Informe tecnico">
                 <?php  
-                  $query = "SELECT * FROM `INFORME_TECNICO`";
-                  $result_tasks = mysqli_query($conn, $query);
+                  $query3 = "SELECT * FROM `INFORME_TECNICO`";
+                  $result_tasks3 = mysqli_query($conn, $query3);
                   $tipP=2
                 ?>
-                <?php while ($row = mysqli_fetch_array($result_tasks)):; ?>
+                <?php while ($row3 = mysqli_fetch_array($result_tasks3)):; ?>
 
-                  <option value="<?php echo $row[0]?>">  <?php echo $row[1] ?> </option>
+                  <option value="<?php echo $row3[0]?>">  <?php echo $row3[1] ?> </option>
 
                 <?php endwhile ?>
               </optgroup>
-
+              <?php echo $tipP; ?>
             </select>
           </div>
           

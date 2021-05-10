@@ -133,7 +133,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link" style="color: red;">
+            <a href="logout.php" class="nav-link" style="color: red;">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
               Cerrar sesión
             </a>
@@ -145,21 +145,21 @@
         <h1 class="h3 mb-3 fw-normal">Agregar congreso</h1>  
 
         <div class="mb-2 form-floating">
-          <input type="text" name="nombreCongreso" class="form-control" >
+          <input type="text" name="nombreCongreso" class="form-control" require>
           <label class="form-label" for="floatingInput">Nombre del Congreso</label>
         </div>
         
-        <div class="mb-2 form-floating">
+        <div class="mb-2 form-floating" require>
           <input type="text" name="edicionCongreso" class="form-control">
           <label class="form-label">Edicion del Congreso</label>
         </div>
       
-        <div class="mb-2 form-floating">
+        <div class="mb-2 form-floating" require>
           <input type="text" name="pais" class="form-control">
           <label class="form-label">País</label>
         </div>
       
-        <div class="mb-2 form-floating">
+        <div class="mb-2 form-floating" require>
           <input type="text" name="ciudad" class="form-control">
           <label class="form-label">Ciudad</label>
         </div>
@@ -176,12 +176,12 @@
         </div>
 
         <div class="mb-2 form-floating">
-          <input type="date" name="fechaInicio" class="form-control">
+          <input type="date" name="fechaInicio" class="form-control" require>
           <label class="form-label">Fecha de Inicio</label>
         </div>
 
         <div class="mb-2 form-floating">
-          <input type="date" name="fechaFinal" class="form-control">
+          <input type="date" name="fechaFinal" class="form-control" require>
           <label class="form-label">Fecha de Término</label>
         </div>
 

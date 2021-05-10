@@ -133,7 +133,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link" style="color: red;">
+            <a href="logout.php" class="nav-link" style="color: red;">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
               Cerrar sesión
             </a>

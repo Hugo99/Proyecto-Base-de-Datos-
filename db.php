@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$tipP=0;
+
 $conn = mysqli_connect(
     'localhost',
     'root',

@@ -134,7 +134,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link" style="color: red;">
+            <a href="logout.php" class="nav-link" style="color: red;">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
               Cerrar sesión
             </a>
@@ -147,12 +147,12 @@
     
         <div class="mb-2 form-floating">
           <input type="text" name="nombre" class="form-control" id="floatingInput" >
-          <label for="floatingInput" name="nombre">Nombre</label>
+          <label name="nombre">Nombre</label>
         </div>
 
         <div class="mb-2 form-floating">
-          <input type="email" name="correo" class="form-control" id="floatingPassword" >
-          <label for="floatingPassword" name="correo">Correo </label>
+          <input type="email" name="correo" class="form-control" >
+          <label name="correo">Correo </label>
         </div>
 
         <div>
